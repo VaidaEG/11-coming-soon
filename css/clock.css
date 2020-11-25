@@ -1,1 +1,46 @@
-.clock {}
+.clock {
+    display: inline-block;
+    width: 100%;
+    color: #FFF;
+}
+    .clock .time {
+        display: inline-block;
+        width: 25%;
+        float: left;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+        .clock .value {
+            display: inline-block;
+            width: 100%;
+            font-size: 60px;
+        }
+        .clock .label {
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+@media (max-width: 700px) {
+    .clock .time {
+        width: 50%;
+    }
+    .clock .time:nth-of-type(3),
+    .clock .time:last-of-type {
+        margin-bottom: 0px;
+    }
+    /* .hero .clock {
+        margin-bottom: calc((var(--hero-space) * 2) - 15px);
+    } */
+}
+@media (max-width: 500px) {
+    .clock .time {
+        width: 100%;
+    }
+    .clock .time:last-of-type {
+        margin-bottom: 0px;
+    }
+    /* .hero .clock {
+        margin-bottom: calc((var(--hero-space) * 2) - 15px);
+    } */
+}
