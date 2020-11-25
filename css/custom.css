@@ -114,3 +114,11 @@ footer > .row {
         color: #FFF;
 
     }
+@media (max-width: 700px) {
+    footer .text-trio > .text {
+        width: 100%;
+    }
+        footer .text-trio > .text::before {
+            display: none;
+        }
+}
