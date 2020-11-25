@@ -77,9 +77,28 @@ footer {
     font-size: 17px;
     color: #FFFA;
 }
-footer > .row {
+footer.container > .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 20px;
     border-bottom: 1px solid #FFF;
 }
+    footer .fa {
+        display: inline-block;
+        padding: 10px;
+        line-height: 20px;
+        width: 40px;
+        color: #FFF;
+        text-align: center;
+        border-radius: 50%;
+        transition: all 0.5s;
+    }
+        footer .fa:hover {
+            background-color: #FFF;
+            color: var(--main-color);
+        }
     footer .text-trio {
         display: inline-block;
         width: 100%;
@@ -112,6 +131,7 @@ footer > .row {
     }
     footer a {
         color: #FFF;
+        text-decoration: none;
 
     }
 @media (max-width: 700px) {
