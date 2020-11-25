@@ -1,8 +1,13 @@
 /* custom CSS - everything else, that wasn't styled with components css */
 
 /* layout */
-container.hero {
+.container.hero {
     padding-bottom: var(--section-padding);
+    background-image: url(../img/hero-background.jpg);
+    background-size: cover;
+    background-position: bottom center;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 footer.container {
