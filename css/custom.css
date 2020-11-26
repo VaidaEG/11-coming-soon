@@ -50,7 +50,20 @@ footer.container {
 }
 .hero .form {
     margin-bottom: var(--hero-space);
+    width: 90%;
 }
+    .hero .form > input {
+        width: 100%;
+        background-color: transparent;
+        color: #FFF;
+        border-bottom-color: #FFF;
+    }
+        .hero .form > input::placeholder {
+            color: #FFF;
+        }
+    .hero .form > .btn {
+        float: none;
+    }
 
 
 /* main content */
