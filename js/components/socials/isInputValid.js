@@ -1,4 +1,10 @@
-function isInputValid(data) {
+function isInputValid(selector, data) {
+    if (typeof selector !== 'string') {
+        console.error('ERROR: selektorius turi būti tekstinio tipo.')
+    }
+    if (typeof selector === '') {
+        console.error('ERROR: selektorius negali būti tuščias.')
+    }
     if (!Array.isArray(data)) {
         console.error('ERROR: social ikonom generuoti reikia array tipo duomenų.');
         return false;
