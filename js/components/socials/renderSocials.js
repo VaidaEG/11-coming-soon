@@ -1,30 +1,36 @@
 import { isInputValid } from "./isInputValid.js";
+import { isValidSocialItem } from './isValidSocialItem.js';
 
-function renderSocials(data) {
+/**
+ * Social nuorodu generavimas is pateiktu duomenu i nurodyta vieta DOM'e.
+ * @param {string} selector Selektorius, kaip rasti norima vieta, kur bus istatomas sugeneruotas kodas
+ * @param {Array} data  Duomenu masyvas su objektais, kurie reprezentuoja social nuorodas
+ * @returns {boolean} Logikos vykdymo metu radus klaida grazinamas `false`, o funkcijai suveikus teisingai - `true`
+ */
+function renderSocials(selector, data) {
     // input validation
-    if (!isInputValid(data)) {
+    if (!isInputValid(selector, data)) {
         return false;
     }
     
     // logic
+    const socialsDOM = document.querySelector(selector);
+
+    if (!socialsDOM) {
+        console.error('ERROR: nerasta turinio generavimo vieta.');
+        return false;
+    }
+
     let HTML = '';
 
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
-        if (typeof item !== 'object') {
-            continue;
-        }
-        if (typeof item.link !== 'string' || item.link === '') {
-            continue;
-        }
-        if (typeof item.icon !== 'string' || item.icon === '') {
+        if (!isValidSocialItem(item)) {
             continue;
         }
         HTML += `<a href="${item.link}" target="_blank" class="fa fa-${item.icon}" aria-hidden="true"></a>`;
     }
     
-    const socialsDOM = document.querySelector('footer > .row');
-
     // post logic validation
     if (HTML === '') {
         console.error('ERROR: nepavyko sugeneruoti social ikonų/nuorodų.');
