@@ -105,8 +105,9 @@ footer.container > .row {
     gap: 10px;
     padding: 10px 20px;
     border-bottom: 1px solid #FFF;
+    position: relative;
 }
-    footer .fa {
+    footer .social.fa {
         display: inline-block;
         padding: 10px;
         line-height: 20px;
@@ -116,10 +117,15 @@ footer.container > .row {
         border-radius: 50%;
         transition: all 0.5s;
     }
-        footer .fa:hover {
+        footer .social.fa:hover {
             background-color: #FFF;
             color: var(--main-color);
         }
+    footer .btn.circle {
+        position: absolute;
+        top: -24px;
+        right: -13px;;
+    }
     footer .text-trio {
         display: inline-block;
         width: 100%;
