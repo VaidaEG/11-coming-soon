@@ -17,7 +17,7 @@
             display: inline-block;
             float: left;
         }
-        .progress-bar > .top > .label {
+        .progress-bar > .top > .value {
             display: inline-block;
             float: right;
         }
