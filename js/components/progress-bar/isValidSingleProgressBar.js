@@ -11,7 +11,7 @@ function isValidSingleProgressBar(progressBar) {
         console.error('ERROR: objekto title parametras turi būti ne tuščias tekstas.');
         return false;
     }
-    if (!progressBar.value || typeof progressBar.value!== 'number' || progressBar.value < 0 || progressBar.value > 100 || progressBar.value % 1 !==0) {
+    if (!progressBar.value || typeof progressBar.value !== 'number' || progressBar.value < 0 || progressBar.value > 100 || progressBar.value % 1 !==0) {
         console.error('ERROR: objekto value parametras turi būti sveikasis skaičius intervale nuo 0 iki 100.');
         return false;
     }
