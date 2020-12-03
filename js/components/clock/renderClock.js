@@ -1,3 +1,5 @@
+import { countTimeDiff } from './countTimeDiff.js';
+
 // Target date is New Year evening.
 // 2021-01-01 00:00:00
 
@@ -21,56 +23,41 @@ function renderClock(selector) {
         return false;
     }
 
-    // einamieji metai (2020)
-    const date = new Date ();
-    const currentYear = date.getFullYear();
+    const time = countTimeDiff();
 
-    // naujieji = einamieji metai + 1 (2020 + 1 = 2021)
-    const newYear = currentYear + 1;
-
-    // susikonstruojame pilna data: ${naujieji}-01-01 00:00:00
-    const newYearDate = `${newYear}-01-01 00:00:00`;
-    const newYearObject = new Date(newYearDate);
-    const newYearMiliseconds = newYearObject.getTime();
-
-    // einamasis laikas yyyy-mm-dd hh:mm:ss
-    const currentTimeMiliseconds = date.getTime();
-
-    // suskaiciuojame laiko skirtuma
-    const timeLeft = newYearMiliseconds - currentTimeMiliseconds;
-    let secondsLeft = timeLeft / 1000;
-
-    // is skirtumo apskaiciuojame likusias dienas, valandas, minutes ir sekundes
-
-    const days = Math.floor(secondsLeft / 60 / 60 / 24);
-    secondsLeft -= days * 60 * 60 * 24;
-
-    const hours = Math.floor(secondsLeft / 60 / 60);
-    secondsLeft -= hours * 60 * 60;
-
-    const minutes = Math.floor(secondsLeft / 60);
-    secondsLeft -= minutes * 60;
-
-    const seconds = Math.floor(secondsLeft);
 
     const HTML = `<div class="time">
-            <div class="value">${days}</div>
+            <div class="value">${time.days}</div>
             <div class="label">Days</div>
         </div>
         <div class="time">
-            <div class="value">${hours}</div>
+            <div class="value">${time.hours}</div>
             <div class="label">Hours</div>
         </div>
         <div class="time">
-            <div class="value">${minutes}</div>
+            <div class="value">${time.minutes}</div>
             <div class="label">Minutes</div>
         </div>
         <div class="time">
-            <div class="value">${seconds}</div>
+            <div class="value">${time.seconds}</div>
             <div class="label">Seconds</div>
         </div> `;
 
     DOM.innerHTML = HTML;
+    const timesDOM = DOM.querySelectorAll('.value');
+    console.log(timesDOM);
+
+    // Paleidziame laikordzio mechanizma
+    let timePassed = 0;
+
+    setInterval(() => {
+        const time = countTimeDiff();
+        timesDOM[0].innerText = time.days;
+        timesDOM[1].innerText = time.hours;
+        timesDOM[2].innerText = time.minutes;
+        timesDOM[3].innerText = time.seconds;
+    }, 1000);
+
     return true;
 }
 
