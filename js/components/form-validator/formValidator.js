@@ -22,7 +22,8 @@ function formValidator(selector) {
         for (let input of allElements) {
             const validationRule = input.dataset.validation;
             const text = input.value;
-            const error = validation[validationRule](text);
+            const validationFunction = validation[validationRule];
+            const error = validationFunction(text);
             if (error !== true) {
                 console.log(error);
                 errorCount++;
