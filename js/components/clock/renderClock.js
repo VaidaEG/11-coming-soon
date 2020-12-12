@@ -45,7 +45,6 @@ function renderClock(selector) {
 
     DOM.innerHTML = HTML;
     const timesDOM = DOM.querySelectorAll('.value');
-    console.log(timesDOM);
 
     // Paleidziame laikordzio mechanizma
     let timePassed = 0;
