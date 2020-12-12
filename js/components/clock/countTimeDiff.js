@@ -8,7 +8,7 @@ function countTimeDiff() {
     const newYear = currentYear + 1;
 
     // susikonstruojame pilna data: ${naujieji}-01-01 00:00:00
-    const newYearDate = `${newYear}-01-01 00:00:00`;
+    const newYearDate = `${newYear}-01-01T00:00:00`;
     const newYearObject = new Date(newYearDate);
     const newYearMiliseconds = newYearObject.getTime();
 
