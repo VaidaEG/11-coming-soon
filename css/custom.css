@@ -7,6 +7,10 @@
     background-size: cover;
     background-position: bottom center;
     background-attachment: fixed;
+    -webkit-background-attachment: fixed;
+    -moz-background-attachment: fixed;
+    -o-background-attachment: fixed;
+    -ms-background-attachment: fixed;
     min-height: 100vh;
 }
 
