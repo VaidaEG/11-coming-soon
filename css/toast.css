@@ -1,0 +1,30 @@
+.toast {
+    display: none;
+    width: 260px;
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    background: #FFF;
+    border: 1px solid #CCC;
+}
+    .toast > .fa {
+        display: inline-block;
+        float: left;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 24px;
+        background-color: #FFFFFF;
+        color: #333;
+    }
+    .toast > p {
+        display: inline-block;
+        float: left;
+        width: 180px;
+        padding: 10px;
+        line-height: 20px;
+        font-size: 16px;
+        color: #333;
+    }
