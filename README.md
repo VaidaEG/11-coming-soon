@@ -10,7 +10,7 @@
 
 This project is for educational porpuses only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
 
-Site published at https://VaidaEG.github.io/cooming-soon/
+Site published at https://vaidaeg.github.io/11-coming-soon/
 
 Design: [Matrox coming soon] (https://cdn.discordapp.com/attachments/648536139677958156/651479019476221953/coming-soon-wide.png)
 
