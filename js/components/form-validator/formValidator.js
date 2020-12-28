@@ -1,10 +1,17 @@
 import { validation } from './validationRules.js';
-function formValidator(selector) {
+
+/**
+ * Formos validavima atliekanti funkcija, kuri automatiskai atpazista kokiems ivesties laukams kokias reikia taikyti validacijos taisykles ir pagal tai atvaizduoja atitinkamus pranesimus 
+ * @param {string} selector CSS like selector
+ * @param {Object} toastObject Objektas i kuri reikia kreiptis, norint atvaizduoti pranesimus: tiek sekmes, tiek klaidos
+ * @returns {boolean} Funkcijai sekmingai suveikus, grazinamas `true`, priesingu atveju - `false`;
+ */
+function formValidator(selector, toastObject) {
     const formDOM = document.querySelector(selector);
     const submitBtnDOM = formDOM.querySelector('input[type="submit"]');
     
     if (!submitBtnDOM) {
-        console.error('ERROR: formoje nerastas input submit mygtukas.');
+        toastObject.show('error', 'ERROR: formoje nerastas input submit mygtukas.');
         return false;
     }
     const allInputDOMs = formDOM.querySelectorAll('input:not([type="submit"])');
@@ -12,11 +19,12 @@ function formValidator(selector) {
     const allElements = [...allInputDOMs, ...allTextareaDOMs];
 
     if (allElements.length === 0) {
-        console.error('ERROR: formoje nerastas nei vienas imput ar textarea elementas.');
+        toastObject.show('error', 'ERROR: formoje nerastas nei vienas imput ar textarea elementas.');
         return false;
     }
 
-    submitBtnDOM.addEventListener('click', () => {
+    submitBtnDOM.addEventListener('click', event => {
+        event.preventDefault();
         let errorCount = 0;
         console.clear();
         for (let input of allElements) {
@@ -25,14 +33,18 @@ function formValidator(selector) {
             const validationFunction = validation[validationRule];
             const error = validationFunction(text);
             if (error !== true) {
+                toastObject.show('error', error);
                 console.log(error);
                 errorCount++;
+                break; // padaro, jog klaidos pranesima mestu ties pirma sutikta klaida
             }         
         } 
         if (errorCount === 0) {
+            toastObject.show('success', 'Informacija siunčiama...');
             console.log('Siunčiam info.');
         } 
     })
+    return true;
 }
 
 export { formValidator }
