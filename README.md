@@ -8,7 +8,7 @@
 # Coming soon
 ### 19 group coming soon website project
 
-This project is for educational purposes only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
+This project is for educational purposes only.
 
 Site published at https://vaidaeg.github.io/11-coming-soon/
 
